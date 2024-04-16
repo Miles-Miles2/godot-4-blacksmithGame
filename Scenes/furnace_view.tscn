@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbewmp7ajn6ua"]
+
+[ext_resource type="PackedScene" uid="uid://cpt7iue14srrd" path="res://Scenes/furnace_ui.tscn" id="1_416dg"]
+
+[node name="furnace_view" type="Node2D"]
+
+[node name="furnaceUI" parent="." instance=ExtResource("1_416dg")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1280.0
+offset_bottom = 720.0

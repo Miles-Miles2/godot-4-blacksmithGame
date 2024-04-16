@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkh8afl08i0o8"]
+
+[ext_resource type="Texture2D" uid="uid://csgo8fvlkb7nh" path="res://Art/anvil.png" id="1_ebin3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5adb"]
+size = Vector2(32, 26)
+
+[node name="Anvil" type="Node2D" groups=["interactable", "selectable"]]
+z_index = 2
+
+[node name="Anvil" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_ebin3")
+
+[node name="collider" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collider"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_v5adb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_v5adb")

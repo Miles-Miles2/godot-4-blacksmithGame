@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cebqu62uxlcr6"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_tv3ar"]
+[ext_resource type="Texture2D" uid="uid://bpsmug5fk8j4d" path="res://Art/temp/tempCharacter.png" id="2_5vxxm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pju03"]
+radius = 15.0333
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iflds"]
+radius = 36.4516
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2.14, 2.14)
+script = ExtResource("1_tv3ar")
+SPEED = 500
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_5vxxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pju03")
+
+[node name="interactDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactDetector"]
+shape = SubResource("CircleShape2D_iflds")
+
+[connection signal="body_exited" from="interactDetector" to="." method="_on_interact_detector_body_exited"]

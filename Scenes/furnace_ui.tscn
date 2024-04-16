@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpt7iue14srrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gtmb"]
+bg_color = Color(0.65, 0.635375, 0.5525, 1)
+
+[node name="furnaceUI" type="Control"]
+layout_mode = 3
+anchor_left = 0.102
+anchor_top = 0.101
+anchor_right = 0.898
+anchor_bottom = 0.899
+offset_left = -130.56
+offset_top = -72.72
+offset_right = 130.56
+offset_bottom = 72.72
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [560.0, 720.0, 400.0, 880.0]
+
+[node name="ColorRect" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.178
+anchor_right = 0.9
+anchor_bottom = 0.889
+offset_top = -0.160011
+offset_bottom = -0.0800171
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1gtmb")
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_top = 231.0
+offset_right = -752.0
+offset_bottom = -121.0
+text = "Ingredient"
+
+[node name="Button2" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 432.0
+offset_top = 231.0
+offset_right = -432.0
+offset_bottom = -121.0
+
+[node name="Button3" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 752.0
+offset_top = 231.0
+offset_right = -112.0
+offset_bottom = -121.0

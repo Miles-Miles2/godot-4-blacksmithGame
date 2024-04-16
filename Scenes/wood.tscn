@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs8ak2qkvhehv"]
+
+[ext_resource type="Texture2D" uid="uid://bjwy6fqot4vfd" path="res://Art/wood.png" id="1_wehbf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b42rd"]
+radius = 16.0
+
+[node name="Wood" type="Node2D" groups=["holdable", "selectable"]]
+z_index = 2
+
+[node name="Wood" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_wehbf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_b42rd")
