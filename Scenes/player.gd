@@ -24,8 +24,7 @@ func getNearestStation():
 '''
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var inputDirection = Input.get_vector("left", "right", "up", "down")
-	velocity = inputDirection * SPEED
+	
 	
 	
 	if $interactDetector.has_overlapping_areas() == true:
@@ -52,14 +51,18 @@ func _process(delta):
 				heldObject = selectedObject
 			elif selectedObject.is_in_group("interactable"):
 				print("interacting with " + selectedObject.name)
-				selectedObject.get_node("furnace_view").show()
+				selectedObject.get_node("workstation_view").show()
+				#print(str(selectedObject.position) + " | " + str(selectedObject.get_node("workstation_view").position))
+				
+				selectedObject.get_node("workstation_view").position = Vector2(0,0)
 		elif heldObject:
 			heldObject = null
 			
 			
 	if heldObject:
 		heldObject.position = heldObject.position.lerp(position, 0.2)
-	
+	var inputDirection = Input.get_vector("left", "right", "up", "down")
+	velocity = inputDirection * SPEED
 	move_and_slide()
 
 

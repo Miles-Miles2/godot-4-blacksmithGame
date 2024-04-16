@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccvykwh2yym2c"]
+
+[ext_resource type="Script" path="res://Scenes/objectPickup.gd" id="1_xbqdm"]
+[ext_resource type="Texture2D" uid="uid://bcuct3aeekh7d" path="res://Art/coal.png" id="2_h8dfj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_je4w7"]
+radius = 7.21
+
+[node name="coal" type="Node2D"]
+
+[node name="coalRB2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+freeze_mode = 1
+linear_damp = 1.0
+script = ExtResource("1_xbqdm")
+springForce = 30.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coalRB2D"]
+position = Vector2(-0.615, 0.975)
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_je4w7")
+
+[node name="Coal2" type="Sprite2D" parent="coalRB2D"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_h8dfj")

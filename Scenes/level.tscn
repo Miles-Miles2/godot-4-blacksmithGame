@@ -1268,5 +1268,5 @@ position = Vector2(495, 319)
 z_index = 2
 position = Vector2(272, 322)
 
-[node name="Node2D" parent="." instance=ExtResource("7_uevos")]
+[node name="Furnace" parent="." instance=ExtResource("7_uevos")]
 position = Vector2(400, 320)

@@ -39,6 +39,8 @@ offset_left = 112.0
 offset_top = 231.0
 offset_right = -752.0
 offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Ingredient"
 
 [node name="Button2" type="Button" parent="ColorRect"]
@@ -60,3 +62,5 @@ offset_left = 752.0
 offset_top = 231.0
 offset_right = -112.0
 offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2

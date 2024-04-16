@@ -23,5 +23,6 @@ shape = SubResource("RectangleShape2D_d1pn3")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_d1pn3")
 
-[node name="furnace_view" parent="." instance=ExtResource("2_ghiks")]
+[node name="workstation_view" parent="." instance=ExtResource("2_ghiks")]
 visible = false
+position = Vector2(30.365, 0)

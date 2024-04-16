@@ -1,11 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbewmp7ajn6ua"]
+[gd_scene load_steps=4 format=3 uid="uid://dbewmp7ajn6ua"]
 
-[ext_resource type="PackedScene" uid="uid://cpt7iue14srrd" path="res://Scenes/furnace_ui.tscn" id="1_416dg"]
+[ext_resource type="Script" path="res://Scenes/furnace_controller.gd" id="1_upcjx"]
 
-[node name="furnace_view" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt62w"]
+size = Vector2(688, 16)
 
-[node name="furnaceUI" parent="." instance=ExtResource("1_416dg")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 1280.0
-offset_bottom = 720.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py8m4"]
+size = Vector2(16, 96)
+
+[node name="workstation_view" type="Node2D"]
+script = ExtResource("1_upcjx")
+
+[node name="CoalHolders" type="Node2D" parent="."]
+position = Vector2(640, 416)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CoalHolders"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoalHolders/StaticBody2D"]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_lt62w")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="CoalHolders"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoalHolders/StaticBody2D2"]
+position = Vector2(-336, -24)
+shape = SubResource("RectangleShape2D_py8m4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CoalHolders/StaticBody2D2"]
+position = Vector2(336, -24)
+shape = SubResource("RectangleShape2D_py8m4")
