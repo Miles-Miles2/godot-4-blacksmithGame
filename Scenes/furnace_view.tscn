@@ -1,25 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbewmp7ajn6ua"]
+[gd_scene load_steps=9 format=3 uid="uid://dbewmp7ajn6ua"]
 
 [ext_resource type="Script" path="res://Scenes/furnace_controller.gd" id="1_upcjx"]
+[ext_resource type="Texture2D" uid="uid://hxsdj1b8jdh8" path="res://Art/smeltItemIcon.png" id="2_itras"]
+[ext_resource type="Texture2D" uid="uid://df076bat21ycn" path="res://Art/heatIconOff.png" id="3_w4wym"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0wbcn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt62w"]
-size = Vector2(688, 16)
+size = Vector2(512, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_py8m4"]
 size = Vector2(16, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4eg51"]
+size = Vector2(32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y47n7"]
+font_size = 32
+shadow_size = 0
+
 [node name="workstation_view" type="Node2D"]
 script = ExtResource("1_upcjx")
+HEATING_SPEED = 0.005
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.458824, 0.517647, 0.541176, 1)
+position = Vector2(2.67029e-05, -80)
+scale = Vector2(528, 256)
+mesh = SubResource("QuadMesh_0wbcn")
 
 [node name="CoalHolders" type="Node2D" parent="."]
-position = Vector2(640, 416)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="CoalHolders"]
+[node name="floor_ceiling" type="StaticBody2D" parent="CoalHolders"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoalHolders/StaticBody2D"]
+[node name="floor" type="CollisionShape2D" parent="CoalHolders/floor_ceiling"]
 position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_lt62w")
+
+[node name="ceiling" type="CollisionShape2D" parent="CoalHolders/floor_ceiling"]
+position = Vector2(0, -80)
 shape = SubResource("RectangleShape2D_lt62w")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="CoalHolders"]
@@ -27,9 +48,38 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoalHolders/StaticBody2D2"]
-position = Vector2(-336, -24)
+position = Vector2(-248, -24)
 shape = SubResource("RectangleShape2D_py8m4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CoalHolders/StaticBody2D2"]
-position = Vector2(336, -24)
+position = Vector2(248, -24)
 shape = SubResource("RectangleShape2D_py8m4")
+
+[node name="SmeltItemIcon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -128)
+scale = Vector2(2, 2)
+texture = ExtResource("2_itras")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="HeatIcon" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(-96, -128)
+scale = Vector2(2, 2)
+texture = ExtResource("3_w4wym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-96, -128)
+shape = SubResource("RectangleShape2D_4eg51")
+
+[node name="temperatureLabel" type="Label" parent="."]
+offset_left = -128.0
+offset_top = -208.0
+offset_right = 128.0
+offset_bottom = -160.0
+label_settings = SubResource("LabelSettings_y47n7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

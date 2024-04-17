@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://gqr80x88tcph"]
+[gd_scene load_steps=16 format=3 uid="uid://gqr80x88tcph"]
 
 [ext_resource type="PackedScene" uid="uid://cebqu62uxlcr6" path="res://Scenes/player.tscn" id="1_ad4df"]
 [ext_resource type="Texture2D" uid="uid://dhbwfsr0mu021" path="res://Art/temp/Dungeon_WallsAndFloors.png" id="2_vb32s"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cs8ak2qkvhehv" path="res://Scenes/wood.tscn" id="5_5lx6n"]
 [ext_resource type="PackedScene" uid="uid://4bd76kgs482q" path="res://Scenes/iron.tscn" id="6_2kw8k"]
 [ext_resource type="PackedScene" uid="uid://bbsl4owg2msn5" path="res://Scenes/furnace.tscn" id="7_uevos"]
+[ext_resource type="PackedScene" uid="uid://dfci0ribx8rth" path="res://Scenes/resources/raw_iron.tscn" id="8_qu2s2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_dob73"]
 b = Vector2(0, 720)
@@ -1209,7 +1210,7 @@ texture = ExtResource("3_m8edt")
 0:14/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_dwx0r"]
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hs8eu")
 sources/1 = SubResource("TileSetAtlasSource_2kifd")
 
@@ -1270,3 +1271,6 @@ position = Vector2(272, 322)
 
 [node name="Furnace" parent="." instance=ExtResource("7_uevos")]
 position = Vector2(400, 320)
+
+[node name="rawIron" parent="." groups=["holdable", "selectable"] instance=ExtResource("8_qu2s2")]
+position = Vector2(400, 240)

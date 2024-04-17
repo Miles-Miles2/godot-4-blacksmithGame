@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfci0ribx8rth"]
+
+[ext_resource type="Script" path="res://Scenes/itemScript.gd" id="1_etmmn"]
+[ext_resource type="Texture2D" uid="uid://cu1o1rvm64ph" path="res://Art/rawIron.png" id="1_mbxug"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fb6no"]
+radius = 16.0
+
+[node name="rawIron" type="Node2D"]
+z_index = 1
+script = ExtResource("1_etmmn")
+smeltedVersionName = "res://Scenes/iron.tscn"
+MIN_TEMP = 2800
+TEMP_SENSITIVITY = 1.0
+
+[node name="smeltedIronSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_mbxug")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fb6no")

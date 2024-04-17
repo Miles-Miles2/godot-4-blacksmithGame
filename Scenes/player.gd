@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var SPEED := 300
-@export var workStations: Node2D
 @export var INTERACT_DISTANCE: float = 250.0
 
 @export var selectedObject: Node2D = null
@@ -45,13 +44,13 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("interact"):
 		if selectedObject != null:
-			print(selectedObject.name)
+			#print(selectedObject.name)
 			if selectedObject.is_in_group("holdable"):
-				print("is holdable")
+				#print("is holdable")
 				heldObject = selectedObject
 			elif selectedObject.is_in_group("interactable"):
-				print("interacting with " + selectedObject.name)
-				selectedObject.get_node("workstation_view").show()
+				print("interacting with " + selectedObject.name + " while holding " + str(heldObject))
+				selectedObject.interact(heldObject)
 				#print(str(selectedObject.position) + " | " + str(selectedObject.get_node("workstation_view").position))
 				
 				selectedObject.get_node("workstation_view").position = Vector2(0,0)

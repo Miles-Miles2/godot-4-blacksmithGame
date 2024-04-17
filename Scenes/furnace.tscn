@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbsl4owg2msn5"]
+[gd_scene load_steps=5 format=3 uid="uid://bbsl4owg2msn5"]
 
 [ext_resource type="Texture2D" uid="uid://nac6rd6o34xx" path="res://Art/furnace.png" id="1_d7qri"]
+[ext_resource type="Script" path="res://Scenes/furnaceSpriteScript.gd" id="1_psuuj"]
 [ext_resource type="PackedScene" uid="uid://dbewmp7ajn6ua" path="res://Scenes/furnace_view.tscn" id="2_ghiks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1pn3"]
 size = Vector2(32, 32)
 
 [node name="Furnace" type="Node2D" groups=["interactable", "selectable"]]
+script = ExtResource("1_psuuj")
 
 [node name="Furnace" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -25,4 +27,3 @@ shape = SubResource("RectangleShape2D_d1pn3")
 
 [node name="workstation_view" parent="." instance=ExtResource("2_ghiks")]
 visible = false
-position = Vector2(30.365, 0)

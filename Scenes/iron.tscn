@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://4bd76kgs482q"]
+[gd_scene load_steps=4 format=3 uid="uid://4bd76kgs482q"]
 
+[ext_resource type="Script" path="res://Scenes/itemScript.gd" id="1_dk5ht"]
 [ext_resource type="Texture2D" uid="uid://b46c0qcm8g2vn" path="res://Art/iron.png" id="1_gg8c1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5wfo"]
 radius = 16.0
 
-[node name="Iron" type="Node2D" groups=["holdable", "selectable"]]
+[node name="Iron" type="Node2D" groups=["holdable", "selectable", "smeltable"]]
+z_index = 1
+script = ExtResource("1_dk5ht")
+smeltedVersionName = "res://Scenes/resources/smelted_iron.tscn"
 
-[node name="Iron" type="Sprite2D" parent="."]
+[node name="raw" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1_gg8c1")
