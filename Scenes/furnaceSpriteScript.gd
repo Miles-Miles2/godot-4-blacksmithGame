@@ -6,6 +6,7 @@ func interact(heldItem: Node2D):
 	print("furnace interacted with. held item: " + str(heldItem))
 	if (heldItem != null):
 		$workstation_view.addMaterial(heldItem)
+		heldItem.queue_free()
 	else:
 		$workstation_view.position = position
-		$workstation_view.openMenu()
+		$workstation_view.toggleMenu()

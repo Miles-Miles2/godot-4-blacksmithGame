@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://gqr80x88tcph"]
+[gd_scene load_steps=17 format=3 uid="uid://gqr80x88tcph"]
 
 [ext_resource type="PackedScene" uid="uid://cebqu62uxlcr6" path="res://Scenes/player.tscn" id="1_ad4df"]
+[ext_resource type="Script" path="res://Scenes/levelManager.gd" id="1_kol6e"]
 [ext_resource type="Texture2D" uid="uid://dhbwfsr0mu021" path="res://Art/temp/Dungeon_WallsAndFloors.png" id="2_vb32s"]
 [ext_resource type="Texture2D" uid="uid://d2a4kttg3ofnf" path="res://Art/temp/DungeonDecorations.png" id="3_m8edt"]
 [ext_resource type="PackedScene" uid="uid://dkh8afl08i0o8" path="res://Scenes/anvil.tscn" id="4_667w6"]
@@ -1215,6 +1216,7 @@ sources/0 = SubResource("TileSetAtlasSource_hs8eu")
 sources/1 = SubResource("TileSetAtlasSource_2kifd")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_kol6e")
 
 [node name="Player" parent="." instance=ExtResource("1_ad4df")]
 z_index = 1
@@ -1272,5 +1274,5 @@ position = Vector2(272, 322)
 [node name="Furnace" parent="." instance=ExtResource("7_uevos")]
 position = Vector2(400, 320)
 
-[node name="rawIron" parent="." groups=["holdable", "selectable"] instance=ExtResource("8_qu2s2")]
+[node name="rawIron" parent="." instance=ExtResource("8_qu2s2")]
 position = Vector2(400, 240)

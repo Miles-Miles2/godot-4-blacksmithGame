@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbewmp7ajn6ua"]
+[gd_scene load_steps=10 format=3 uid="uid://dbewmp7ajn6ua"]
 
 [ext_resource type="Script" path="res://Scenes/furnace_controller.gd" id="1_upcjx"]
 [ext_resource type="Texture2D" uid="uid://hxsdj1b8jdh8" path="res://Art/smeltItemIcon.png" id="2_itras"]
@@ -12,6 +12,9 @@ size = Vector2(512, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_py8m4"]
 size = Vector2(16, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8oie"]
+size = Vector2(16, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4eg51"]
 size = Vector2(32, 32)
 
@@ -20,6 +23,7 @@ font_size = 32
 shadow_size = 0
 
 [node name="workstation_view" type="Node2D"]
+z_index = 3
 script = ExtResource("1_upcjx")
 HEATING_SPEED = 0.005
 
@@ -61,6 +65,11 @@ position = Vector2(0, -128)
 scale = Vector2(2, 2)
 texture = ExtResource("2_itras")
 
+[node name="Area2D" type="Area2D" parent="SmeltItemIcon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmeltItemIcon/Area2D"]
+shape = SubResource("RectangleShape2D_l8oie")
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="HeatIcon" type="Sprite2D" parent="Area2D"]
@@ -82,4 +91,5 @@ label_settings = SubResource("LabelSettings_y47n7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="input_event" from="SmeltItemIcon/Area2D" to="." method="_item_in_furnace_clicked"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

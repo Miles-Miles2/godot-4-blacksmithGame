@@ -23,7 +23,8 @@ func getNearestStation():
 '''
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	if (not is_instance_valid(heldObject)):
+		heldObject = null
 	
 	
 	if $interactDetector.has_overlapping_areas() == true:
@@ -51,6 +52,7 @@ func _process(delta):
 			elif selectedObject.is_in_group("interactable"):
 				print("interacting with " + selectedObject.name + " while holding " + str(heldObject))
 				selectedObject.interact(heldObject)
+				
 				#print(str(selectedObject.position) + " | " + str(selectedObject.get_node("workstation_view").position))
 				
 				selectedObject.get_node("workstation_view").position = Vector2(0,0)

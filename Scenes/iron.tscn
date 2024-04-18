@@ -6,10 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5wfo"]
 radius = 16.0
 
-[node name="Iron" type="Node2D" groups=["holdable", "selectable", "smeltable"]]
+[node name="Iron" type="Node2D" groups=["holdable", "pourable", "selectable"]]
 z_index = 1
 script = ExtResource("1_dk5ht")
-smeltedVersionName = "res://Scenes/resources/smelted_iron.tscn"
 
 [node name="raw" type="Sprite2D" parent="."]
 texture_filter = 1

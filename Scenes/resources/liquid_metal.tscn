@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://kk80qjwuicbe"]
+
+[ext_resource type="Script" path="res://Scenes/liquidMetalScript.gd" id="1_x8mtw"]
+[ext_resource type="Texture2D" uid="uid://b2x2c8hkygul2" path="res://Art/bucket.png" id="2_6t0fb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y17cq"]
+radius = 16.0
+
+[node name="liquidMetal" type="Node2D" groups=["holdable", "selectable"]]
+script = ExtResource("1_x8mtw")
+
+[node name="Bucket" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_6t0fb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y17cq")

@@ -6,12 +6,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fb6no"]
 radius = 16.0
 
-[node name="rawIron" type="Node2D"]
+[node name="rawIron" type="Node2D" groups=["holdable", "selectable", "smeltable"]]
 z_index = 1
 script = ExtResource("1_etmmn")
-smeltedVersionName = "res://Scenes/iron.tscn"
-MIN_TEMP = 2800
-TEMP_SENSITIVITY = 1.0
+metalName = "Iron"
+MIN_TEMP = 10
+TEMP_SENSITIVITY = 0.01
 
 [node name="smeltedIronSprite" type="Sprite2D" parent="."]
 texture_filter = 1
