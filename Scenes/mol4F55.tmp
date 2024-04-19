@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctw3vewem25eg"]
+
+[ext_resource type="Script" path="res://Scenes/moldWorkstationController.gd" id="1_wvq8e"]
+[ext_resource type="Resource" uid="uid://qt6dxhfungn7" path="res://Resources/Molds/ShortBlade.tres" id="2_anxtw"]
+[ext_resource type="Texture2D" uid="uid://b2omidbnuhf1b" path="res://Art/pourIcon.png" id="2_smc8e"]
+
+[sub_resource type="SystemFont" id="SystemFont_4pyog"]
+font_italic = true
+font_stretch = 150
+generate_mipmaps = true
+subpixel_positioning = 3
+oversampling = 10.0
+
+[node name="workstation_view" type="Node2D"]
+script = ExtResource("1_wvq8e")
+moldIcons = {
+"Short Blade": ExtResource("2_anxtw")
+}
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 128.0
+offset_top = -168.0
+offset_right = 256.0
+offset_bottom = -128.0
+theme_override_fonts/font = SubResource("SystemFont_4pyog")
+theme_override_font_sizes/font_size = 12
+item_count = 4
+item_0/text = "Short Blade"
+item_1/text = "Long Blade"
+item_2/text = "Spear Tip"
+item_3/text = "Hammer Head"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 128.0
+offset_top = -88.0
+offset_right = 168.0
+offset_bottom = -48.0
+texture_normal = ExtResource("2_smc8e")
+stretch_mode = 0
+
+[connection signal="item_selected" from="ItemList" to="." method="mold_selected"]
+[connection signal="pressed" from="TextureButton" to="." method="pour"]

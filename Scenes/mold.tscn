@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bixyij8viukep"]
+
+[ext_resource type="Script" path="res://Scenes/moldObjectScript.gd" id="1_04psl"]
+[ext_resource type="Texture2D" uid="uid://2rc64q2njmdt" path="res://Art/mold.png" id="2_oa8wq"]
+[ext_resource type="PackedScene" uid="uid://ctw3vewem25eg" path="res://Scenes/mold_workstation_view.tscn" id="3_qs1nf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2bfp"]
+size = Vector2(8, 8)
+
+[node name="mold" type="Node2D"]
+script = ExtResource("1_04psl")
+
+[node name="collider" type="StaticBody2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collider"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_d2bfp")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_d2bfp")
+
+[node name="Mold" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_oa8wq")
+
+[node name="workstation_view" parent="." instance=ExtResource("3_qs1nf")]
+position = Vector2(169.99, 264.57)

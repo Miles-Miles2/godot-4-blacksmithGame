@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5wfo"]
 radius = 16.0
 
-[node name="Iron" type="Node2D" groups=["holdable", "pourable", "selectable"]]
+[node name="Iron" type="Node2D" groups=["holdable", "selectable"]]
 z_index = 1
 script = ExtResource("1_dk5ht")
 

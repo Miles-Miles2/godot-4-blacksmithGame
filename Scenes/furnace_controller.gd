@@ -72,7 +72,7 @@ func materialCooked():
 	newBucket.position = $SmeltItemIcon.position
 	newBucket.remove_from_group("holdable")
 	newBucket.remove_from_group("selectable")
-	newBucket.addLiquid(itemInFurnace.metalName, 1)
+	newBucket.addLiquid(itemInFurnace.metalName, 1.0)
 	
 	var oldItem = itemInFurnace
 	itemInFurnace = newBucket

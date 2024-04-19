@@ -10,7 +10,7 @@ radius = 16.0
 z_index = 1
 script = ExtResource("1_etmmn")
 metalName = "Iron"
-MIN_TEMP = 10
+MIN_TEMP = 2000
 TEMP_SENSITIVITY = 0.01
 
 [node name="smeltedIronSprite" type="Sprite2D" parent="."]

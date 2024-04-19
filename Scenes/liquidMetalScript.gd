@@ -12,9 +12,21 @@ func _process(delta: float) -> void:
 	pass
 	
 
-func addLiquid(liquid: String, amount: int):
+func addLiquid(liquid: String, amount: float):
 	if (storedLiquid.has(liquid)):
 		storedLiquid[liquid] += amount
 	else:
 		storedLiquid[liquid] = amount
 	print("stored Liquid: " + str(storedLiquid))
+	
+func getTotalLiquid() -> float:
+	var total = 0
+	for metal in storedLiquid:
+		total += storedLiquid[metal]
+	return total
+	
+func pourOutPercent(percent: float) -> Dictionary:
+	var output = {}
+	for metal in storedLiquid:
+		output[metal] = storedLiquid[metal] * percent
+	return output

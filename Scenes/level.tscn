@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://gqr80x88tcph"]
+[gd_scene load_steps=18 format=3 uid="uid://gqr80x88tcph"]
 
 [ext_resource type="PackedScene" uid="uid://cebqu62uxlcr6" path="res://Scenes/player.tscn" id="1_ad4df"]
 [ext_resource type="Script" path="res://Scenes/levelManager.gd" id="1_kol6e"]
 [ext_resource type="Texture2D" uid="uid://dhbwfsr0mu021" path="res://Art/temp/Dungeon_WallsAndFloors.png" id="2_vb32s"]
 [ext_resource type="Texture2D" uid="uid://d2a4kttg3ofnf" path="res://Art/temp/DungeonDecorations.png" id="3_m8edt"]
+[ext_resource type="PackedScene" uid="uid://bixyij8viukep" path="res://Scenes/mold.tscn" id="3_ncbiw"]
 [ext_resource type="PackedScene" uid="uid://dkh8afl08i0o8" path="res://Scenes/anvil.tscn" id="4_667w6"]
 [ext_resource type="PackedScene" uid="uid://cs8ak2qkvhehv" path="res://Scenes/wood.tscn" id="5_5lx6n"]
 [ext_resource type="PackedScene" uid="uid://4bd76kgs482q" path="res://Scenes/iron.tscn" id="6_2kw8k"]
@@ -1276,3 +1277,8 @@ position = Vector2(400, 320)
 
 [node name="rawIron" parent="." instance=ExtResource("8_qu2s2")]
 position = Vector2(400, 240)
+MIN_TEMP = 100
+TEMP_SENSITIVITY = 1.0
+
+[node name="mold" parent="." groups=["interactable", "selectable"] instance=ExtResource("3_ncbiw")]
+position = Vector2(584, 320)

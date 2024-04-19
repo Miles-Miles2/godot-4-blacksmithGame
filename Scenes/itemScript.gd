@@ -12,6 +12,5 @@ var temperature: float = 0
 func updateTemp(furnaceTemp: float, furnaceObj: Node2D):
 	
 	temperature += clamp((furnaceTemp - temperature) * TEMP_SENSITIVITY, -5, 5)
-	print(temperature)
 	if (temperature > MIN_TEMP):
 		furnaceObj.materialCooked()
